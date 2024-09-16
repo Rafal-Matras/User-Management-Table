@@ -1,0 +1,75 @@
+.container {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: transparent;
+}
+
+.label {
+    position: relative;
+    display: block;
+    border-radius: 40px;
+    width: 86px;
+    height: 40px;
+    background-color: var(--background-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 18px;
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #ffcc89, #d8860b);
+    transition: .3s;
+}
+
+.input {
+    display: none;
+}
+
+label + .input:checked {
+    background-color: #242424;
+}
+
+.input:checked + label::after {
+    left: 83px;
+    transform: translateX(-100%);
+    background: linear-gradient(135deg, #777, #3a3a3a);
+}
+
+.label:active::after {
+    width: 60px;
+}
+
+.label svg {
+    position: absolute;
+    width: 26px;
+    top: 4px;
+    z-index: 1;
+}
+
+.label svg.sun {
+    left: 7px;
+    fill: #fff;
+    transition: .3s;
+}
+
+.label svg.moon {
+    left: 53px;
+    fill: #4d4d4d;
+    transition: .3s;
+}
+
+.input:checked + .label svg.sun {
+    fill: #7e7e7e;
+}
+
+input:checked + label svg.moon {
+    fill: #d8d8d8;
+    stroke: transparent;
+}
